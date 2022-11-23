@@ -1,0 +1,59 @@
+{
+  "works": [
+    {
+      "title": "Ecommerce product page",
+      "languages": "HTML, CSS, JavaScript",
+      "description": "바닐라 JS를 사용한 쇼핑몰 상품 상세페이지",
+      "github": "https://github.com/hiimhl/Ecommerce_product_page",
+      "url": "https://hiimhl.github.io/Ecommerce_product_page/",
+      "img-pc": "../public/Assets/works/product.png",
+      "img-mobile": "../public/Assets/works/product_m.png"
+    },
+    {
+      "title": "Social media",
+      "languages": "HTML, CSS, JavaScript",
+      "description": "다크테마를 추가한 반응형 웹사이트.",
+      "github": "https://github.com/hiimhl/Social-media",
+      "url": "https://hiimhl.github.io/Social-media/",
+      "img-pc": "../public/Assets/works/social.png",
+      "img-mobile": "../public/Assets/works/social_m.png"
+    },
+    {
+      "title": "Sunny side Web page",
+      "languages": "HTML, CSS",
+      "description": "반응형 웹페이지",
+      "github": "https://github.com/hiimhl/sunnyside-page",
+      "url": "https://hiimhl.github.io/sunnyside-page/",
+      "img-pc": "../public/Assets/works/sunnyside.png../public/Assets/works/",
+      "img-mobile": "../public/Assets/works/sunnyside_m.png"
+    },
+    {
+      "title": "Emotion Diary App",
+      "languages": "HTML, CSS, React",
+      "description": "감정을 기록하는 일기장",
+      "github": "https://github.com/hiimhl/Emotion_Diary_App/",
+      "url": "https://hiimhl.github.io/Emotion_Diary_App/",
+      "img-pc": "../public/Assets/works/emotion.png",
+      "img-mobile": "../public/Assets/works/emotion_m.png"
+    },
+    {
+      "title": "Coin Tracker",
+      "languages": "HTML, CSS, React, TypeScript",
+      "description": "실시간 암호화폐 확인 사이트",
+      "github": "https://github.com/hiimhl/Coin_Tracker",
+      "url": "https://hiimhl.github.io/Coin_Tracker/",
+      "img-pc": "../public/Assets/works/coin.png",
+      "img-mobile": "../public/Assets/works/coin_m.png"
+    },
+
+    {
+      "title": "Easybank landing page",
+      "languages": "HTML, CSS, JavaScript",
+      "description": "반응형 웹페이지",
+      "github": "https://github.com/hiimhl/Easybank_landing_page",
+      "url": "https://hiimhl.github.io/Easybank_landing_page/",
+      "img-pc": "../public/Assets/works/easybank.png",
+      "img-mobile": "../public/Assets/works/easybank_m.png"
+    }
+  ]
+}
