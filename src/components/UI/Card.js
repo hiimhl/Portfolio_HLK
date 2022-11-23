@@ -1,8 +1,7 @@
 function Card(props) {
   return (
-    <section className="section" id={props.id}>
-      {props.children}
-    </section>
+    //
+    <div className={`Card ${props.className}`}>{props.children}</div>
   );
 }
 
