@@ -23,22 +23,23 @@ export const colorPalette = {
 
 // Margin, Padding
 export const spaceMargin = {
-  micro: "8px",
-  small: "15px",
-  medium: "20px",
-  regular: "35px",
+  micro: "5px",
+  small: "10px",
+  regular: "15px",
+  medium: "35px",
   large: "50px",
+  section: "150px",
 };
 
 // Font
 export const titleFont = "IBM Plex Mono";
 
 export const fontSize = {
-  large: "48px",
-  medium: "28px",
-  regular: "18px",
-  small: "16px",
   micro: "14px",
+  small: "16px",
+  regular: "18px",
+  medium: "28px",
+  large: "48px",
 };
 
 export const fontWeight = {
