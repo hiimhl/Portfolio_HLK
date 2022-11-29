@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { colorPalette } from "./style";
 
 export const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
@@ -55,6 +56,17 @@ table {
 body {
   font-family: "Noto Sans KR", sans-serif;
 }
+
+/* background image */
+#root{
+  width: 100%;
+  background-color:  ${colorPalette.background};
+  background-image: url("/Assets/background2.svg");
+  background-position: top;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 a {
   text-decoration:none;
   color:inherit;

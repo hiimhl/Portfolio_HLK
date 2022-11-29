@@ -11,9 +11,9 @@ import {
 
 // style
 const Wrapper = styled.header`
-  background-image: url("/Assets/background2.svg");
+  /* background-image: url("/Assets/background2.svg");
   background-position: top;
-  background-size: cover;
+  background-size: cover; */
   width: 100%;
   height: 120vh;
   display: flex;
