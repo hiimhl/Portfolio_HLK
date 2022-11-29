@@ -2,23 +2,11 @@
 
 export const colorPalette = {
   black: "#000000",
-  blue: "#73aace",
-  yellow: "#fff7d1",
-  deepYellow: "#feb546",
-  purple: "#ddacd1",
-  pink: "#f99181",
-  orange: "#f6afa4",
-  gray: {
-    veryLight: "#fafafa",
-    light: "#7c7979",
-    basic: "#616161",
-    dark: "#4d4d4d",
-  },
-  white: {
-    basic: "#ffffff",
-    light: "#eeeeee",
-    dark: "#bdbdbd",
-  },
+  white: "#ffffff",
+  navy: "#3C53A3",
+  gray: "#A4A4A4",
+  orange: "#FFAC8C",
+  background: "#FFF6FF",
 };
 
 // Margin, Padding
@@ -32,7 +20,12 @@ export const spaceMargin = {
 };
 
 // Font
-export const titleFont = "IBM Plex Mono";
+export const fontFamily = {
+  title: "DM Sans",
+  heading: "IBM Plex Mono",
+  basic: "Noto Sans KR",
+  point: "Hardworking",
+};
 
 export const fontSize = {
   micro: "14px",
@@ -40,6 +33,7 @@ export const fontSize = {
   regular: "18px",
   medium: "28px",
   large: "48px",
+  title: "96px",
 };
 
 export const fontWeight = {

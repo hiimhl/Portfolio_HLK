@@ -6,15 +6,19 @@ import {
   fontWeight,
   spaceMargin,
   animationDuration,
+  fontFamily,
 } from "../style";
 
 // style
 const Wrapper = styled.header`
-  background-image: url("/Assets/background_lighter.png");
-  background-position: center;
-  height: 80vh;
+  background-image: url("/Assets/background2.svg");
+  background-position: top;
+  background-size: cover;
+  width: 100%;
+  height: 120vh;
   display: flex;
   flex-direction: column;
+  color: ${colorPalette.navy};
 `;
 
 const Navbar = styled.nav`
@@ -24,14 +28,13 @@ const Navbar = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 16px;
-  //background-color: ${colorPalette.orange}; //opaicty 조절
 `;
 
 const NavLogo = styled.div`
   margin-left: ${spaceMargin.micro};
   font-size: ${fontSize.medium};
   font-weight: ${fontWeight.bold};
-  color: ${colorPalette.white.basic};
+  color: ${colorPalette.white};
   display: flex;
   align-items: center;
 
@@ -44,70 +47,62 @@ const NavLogo = styled.div`
     font-size: ${fontSize.medium};
   }
 `;
+
 const Menu = styled.ul`
   display: flex;
-  color: ${colorPalette.white.basic};
   box-sizing: border-box;
 
   li {
-    margin-right: ${spaceMargin.small};
-    padding: ${spaceMargin.micro} ${spaceMargin.small};
+    margin: 0 ${spaceMargin.regular};
+    padding: ${spaceMargin.micro} 0;
     transition: background-color ${animationDuration} ease;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   /* active */
   li.active {
-    border: 1px ${colorPalette.white.basic} solid;
-    border-radius: ${borderRadius.basic};
+    border-bottom: 2px ${colorPalette.navy} solid;
   }
   li:hover {
-    /* border: 1px ${colorPalette.white.basic} solid; */
-    background-color: ${colorPalette.pink};
-    border-radius: ${borderRadius.basic};
+    border-bottom: 2px ${colorPalette.navy} solid;
   }
 `;
 
-const Home = styled.section`
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
+const Circle = styled.div`
+  width: 10px;
+  height: 10px;
+  border-radius: ${borderRadius.circle};
+  background-color: ${colorPalette.navy};
 
-  padding-top: ${spaceMargin.large};
-  margin-top: ${spaceMargin.large};
-  color: ${colorPalette.white.basic};
-  gap: ${spaceMargin.medium};
+  margin-bottom: ${spaceMargin.micro};
+`;
+
+const Content = styled.div`
+  width: 100%;
+  height: auto;
+  padding-left: 25%;
+
+  position: relative;
+  top: 420px;
 
   h1 {
-    font-size: ${fontSize.large};
-    font-weight: ${fontWeight.title};
-    line-height: 1.4;
+    font-size: ${fontSize.title};
+    font-family: ${fontFamily.title};
   }
 
   h2 {
     font-size: ${fontSize.medium};
-    font-weight: ${fontWeight.title};
-  }
-
-  button {
-    border: 2px ${colorPalette.white.basic} solid;
-    border-radius: ${borderRadius.basic};
-    padding: ${spaceMargin.micro} ${spaceMargin.small};
-    background-color: transparent;
-    color: ${colorPalette.white.basic};
-    font-size: 22px;
-    transition: background-color ${animationDuration} ease;
-  }
-  button:hover {
-    background-color: ${colorPalette.orange};
+    font-weight: ${fontWeight.bold};
   }
 `;
 
-const ProfileImg = styled.div`
-  width: 250px;
-  height: 250px;
-  border: 3px ${colorPalette.white.basic} solid;
-  border-radius: ${borderRadius.circle};
-  background: url("Assets/cat.jpg") center/cover;
+const Line = styled.div`
+  width: 100%;
+  height: 5px;
+  background-color: ${colorPalette.navy};
+  margin: ${spaceMargin.regular} 0;
 `;
 
 function Header() {
@@ -120,24 +115,28 @@ function Header() {
         </NavLogo>
         <Menu>
           <li className="active" data-link="#home">
-            Home
+            <Circle />
+            <span>Home</span>
           </li>
-          <li data-link="#about">About</li>
-          <li data-link="#work">My work</li>
-          <li data-link="#contact">Contact</li>
+          <li data-link="#about">
+            <Circle />
+            <span>About</span>
+          </li>
+          <li data-link="#work">
+            <Circle />
+            <span>My work</span>
+          </li>
+          <li data-link="#contact">
+            <Circle />
+            <span>Contact</span>
+          </li>
         </Menu>
       </Navbar>
-      <Home>
-        <ProfileImg>
-          {/* <img src="Assets/cat.jpg" alt="HL's profile photo" /> */}
-        </ProfileImg>
-        <h1>
-          안녕하세요, <br />
-          ~를 꿈꾸는 김해린입니다.
-        </h1>
-        <h2>A Software Engineer currently residing in Sydney, Australia.</h2>
-        <button>Contact Me</button>
-      </Home>
+      <Content>
+        <h1>Portfolio</h1>
+        <Line />
+        <h2>웹 퍼블리셔 김해린</h2>
+      </Content>
     </Wrapper>
   );
 }

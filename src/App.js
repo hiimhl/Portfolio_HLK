@@ -14,8 +14,8 @@ function App() {
   return (
     <React.Fragment>
       <Header />
-      <AboutMe />
-      <MyWork />
+      {/* <AboutMe />
+      <MyWork /> */}
     </React.Fragment>
   );
 }

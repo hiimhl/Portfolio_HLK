@@ -59,4 +59,12 @@ a {
   text-decoration:none;
   color:inherit;
 }
+
+/* font */
+@font-face {
+    font-family: 'Hardworking';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_06@1.0/Hardworking.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 `;

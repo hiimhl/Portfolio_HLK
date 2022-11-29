@@ -1,0 +1,13 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
+	<title>Pink Gradient_Background</title>
+	<defs>
+		<linearGradient id="g1" x1="69.6" y1="599.2" x2="1081.5" y2="599.2" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#f9cfe1"/>
+			<stop offset="1" stop-color="#fcecce"/>
+		</linearGradient>
+	</defs>
+	<style>
+		.s0 { fill: url(#g1) } 
+	</style>
+	<path id="강낭콩" class="s0" d="m380 380c0 0-105.2-427.5 286-352 0 0 339.6 65.7 394 379 0 0 38.9 289.5 12 485 0 0-10.8 223.2-234 268 0 0-453.9 77-650-76 0 0-229.9-158-49-373 0 0 54.7-45 178-81 0 0 98.8-42.4 96-134z"/>
+</svg>
