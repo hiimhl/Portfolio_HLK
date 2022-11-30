@@ -110,7 +110,7 @@ function Header() {
     <Wrapper>
       <Navbar>
         <NavLogo>
-          <img src="Assets/logo_white.svg" />
+          <img alt="logo" src="Assets/logo_white.svg" />
           <h3>HaeLin</h3>
         </NavLogo>
         <Menu>

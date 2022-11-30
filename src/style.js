@@ -6,6 +6,7 @@ export const colorPalette = {
   navy: "#3C53A3",
   gray: "#A4A4A4",
   orange: "#FFAC8C",
+  pink: "#f8e5f8",
   background: "#FFF6FF",
 };
 

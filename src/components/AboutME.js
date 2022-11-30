@@ -12,9 +12,14 @@ const Wrapper = styled.section`
   width: 100%;
   height: 100vh;
   padding: ${spaceMargin.large};
+`;
 
+const Stroke = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
   gap: ${spaceMargin.large};
+  border: 3px solid ${colorPalette.white};
 `;
 
 const ImgBox = styled.article`
@@ -103,64 +108,66 @@ const List = styled.ul`
 function AboutMe() {
   return (
     <Wrapper>
-      <ImgBox>
-        <div>
-          <Img />
-          <h2>김해린</h2>
-        </div>
-      </ImgBox>
+      <Stroke>
+        <ImgBox>
+          <div>
+            <Img />
+            <h2>김해린</h2>
+          </div>
+        </ImgBox>
 
-      <InfoContainer>
-        <Sentence>
-          <p>"~ 한 사람 입니다"</p>
-        </Sentence>
-        <Resume>
-          <Details>
-            <h3>인적사항</h3>
-            <List>
-              <li>1안녕하세요</li>
-              <li>안녕하세요</li>
-              <li>안녕하세요</li>
-              <li>안녕하세요</li>
-            </List>
-          </Details>
-          <Details>
-            <h3>2인적사항</h3>
-            <List>
-              <li>안녕하세요</li>
-              <li>안녕하세요</li>
-              <li>안녕하세요</li>
-            </List>
-          </Details>
-          <Details>
-            <h3>3인적사항</h3>
-            <List>
-              <li>안녕하세요</li>
-              <li>안녕하세요</li>
-              <li>안녕하세요</li>
-              <li>안녕하세요</li>
-              <li>안녕하세요</li>
-            </List>
-          </Details>
-          <Details>
-            <h3>4인적사항</h3>
-            <List>
-              <li>안녕하세요</li>
-              <li>안녕하세요</li>
-            </List>
-          </Details>
-          <Details>
-            <h3>5인적사항</h3>
-            <List>
-              <li>안녕하세요</li>
-              <li>안녕하세요</li>
-              <li>안녕하세요</li>
-              <li>안녕하세요</li>
-              <li>안녕하세요</li>
-            </List>
-          </Details>
-        </Resume>
-      </InfoContainer>
+        <InfoContainer>
+          <Sentence>
+            <p>"~ 한 사람 입니다"</p>
+          </Sentence>
+          <Resume>
+            <Details>
+              <h3>인적사항</h3>
+              <List>
+                <li>1안녕하세요</li>
+                <li>안녕하세요</li>
+                <li>안녕하세요</li>
+                <li>안녕하세요</li>
+              </List>
+            </Details>
+            <Details>
+              <h3>2인적사항</h3>
+              <List>
+                <li>안녕하세요</li>
+                <li>안녕하세요</li>
+                <li>안녕하세요</li>
+              </List>
+            </Details>
+            <Details>
+              <h3>3인적사항</h3>
+              <List>
+                <li>안녕하세요</li>
+                <li>안녕하세요</li>
+                <li>안녕하세요</li>
+                <li>안녕하세요</li>
+                <li>안녕하세요</li>
+              </List>
+            </Details>
+            <Details>
+              <h3>4인적사항</h3>
+              <List>
+                <li>안녕하세요</li>
+                <li>안녕하세요</li>
+              </List>
+            </Details>
+            <Details>
+              <h3>5인적사항</h3>
+              <List>
+                <li>안녕하세요</li>
+                <li>안녕하세요</li>
+                <li>안녕하세요</li>
+                <li>안녕하세요</li>
+                <li>안녕하세요</li>
+              </List>
+            </Details>
+          </Resume>
+        </InfoContainer>
+      </Stroke>
     </Wrapper>
   );
 }

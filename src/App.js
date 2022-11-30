@@ -3,6 +3,7 @@ import styled from "styled-components";
 import AboutMe from "./components/AboutMe";
 import Header from "./components/Header";
 import MyWork from "./components/MyWork";
+import Footer from "./components/Footer";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -15,7 +16,8 @@ function App() {
     <React.Fragment>
       <Header />
       <AboutMe />
-      {/*<MyWork /> */}
+      <MyWork />
+      <Footer />
     </React.Fragment>
   );
 }
