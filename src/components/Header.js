@@ -1,3 +1,5 @@
+import { motion, useTransform, useScroll } from "framer-motion";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import {
   borderRadius,
@@ -11,9 +13,6 @@ import {
 
 // style
 const Wrapper = styled.header`
-  /* background-image: url("/Assets/background2.svg");
-  background-position: top;
-  background-size: cover; */
   width: 100%;
   height: 120vh;
   display: flex;
@@ -21,13 +20,29 @@ const Wrapper = styled.header`
   color: ${colorPalette.navy};
 `;
 
-const Navbar = styled.nav`
+//moition
+
+const MotionBox = styled(motion.div)`
+  position: absolute;
+  width: 100%;
+`;
+const Box = styled(motion.div)`
+  background-image: url("Assets/circle_g.svg");
+  width: 300px;
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+`;
+
+const Navbar = styled(motion.nav)`
   width: 100%;
   height: 10vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px;
+  background-color: transparent;
+  position: fixed;
 `;
 
 const NavLogo = styled.div`
@@ -50,14 +65,18 @@ const NavLogo = styled.div`
 
 const Menu = styled.ul`
   display: flex;
-  box-sizing: border-box;
+  width: auto;
 
   li {
+    box-sizing: border-box;
+    cursor: pointer;
     margin: 0 ${spaceMargin.regular};
     padding: ${spaceMargin.micro} 0;
     transition: background-color ${animationDuration} ease;
+    border-bottom: 2px transparent solid;
 
     display: flex;
+    justify-content: end;
     flex-direction: column;
     align-items: center;
   }
@@ -70,12 +89,11 @@ const Menu = styled.ul`
   }
 `;
 
-const Circle = styled.div`
+const Circle = styled(motion.div)`
   width: 10px;
   height: 10px;
   border-radius: ${borderRadius.circle};
   background-color: ${colorPalette.navy};
-
   margin-bottom: ${spaceMargin.micro};
 `;
 
@@ -105,29 +123,143 @@ const Line = styled.div`
   margin: ${spaceMargin.regular} 0;
 `;
 
+const Up = styled.button`
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+`;
+// Variants
+
+const boxVars = {
+  start: { scale: 0, transition: { delay: 5 } },
+  end: { scale: 1 },
+};
+
 function Header() {
+  //data link
+  const [path, setPath] = useState({
+    home: 0,
+    about: 1200, //scrollY 값
+    work: 2200,
+    contact: 2574,
+  });
+
+  const [clicked, setClicked] = useState({
+    home: true,
+    about: false,
+    work: false,
+    contact: false,
+  });
+
+  // navBar 배경색 투명도 조절
+  const { scrollYProgress, scrollY } = useScroll();
+
+  const navScroll = useTransform(
+    scrollYProgress,
+    [0, 0.3],
+    ["rgba(208, 189, 219, 0)", "rgba(208, 189, 219, 1)"]
+  );
+
+  // const onScrollEvent=() =>{
+  // if(scrollY.current === 1200){
+  //   console.log('1200');
+  // }
+  // }
+  useEffect(() => {
+    scrollY.onChange(() => {
+      const scrollValue = scrollY.get();
+    });
+    // console.log(scrollY);
+    // if (scrollY.current === 1200) {
+    //   console.log("1200");
+    // }
+  }, [scrollY]);
+
+  const onMenuHandler = (params) => {
+    // active menu button & Scroll Event
+    switch (params) {
+      case "home":
+        setClicked({
+          about: false,
+          work: false,
+          contact: false,
+          home: true,
+        });
+        //Scroll Event , left - X, top - Y / behavior: CSS
+        window.scrollTo({ left: 0, top: path.home, behavior: "smooth" });
+        break;
+
+      case "about":
+        setClicked({
+          home: false,
+          work: false,
+          contact: false,
+          about: true,
+        });
+        window.scrollTo({ left: 0, top: path.about, behavior: "smooth" });
+        break;
+      case "work":
+        setClicked({
+          home: false,
+          about: false,
+          contact: false,
+          work: true,
+        });
+        window.scrollTo({ left: 0, top: path.work, behavior: "smooth" });
+        break;
+      case "contact":
+        setClicked({
+          home: false,
+          about: false,
+          work: false,
+          contact: true,
+        });
+        window.scrollTo({ left: 0, top: path.contact, behavior: "smooth" });
+        break;
+      default:
+        return;
+    }
+
+    // setClicked((prev) => ({
+    //   ...prev
+    //   [params]: !prev[params],
+    // }));
+  };
+
   return (
     <Wrapper>
-      <Navbar>
+      <Navbar style={{ backgroundColor: navScroll }}>
         <NavLogo>
           <img alt="logo" src="Assets/logo_white.svg" />
           <h3>HaeLin</h3>
         </NavLogo>
         <Menu>
-          <li className="active" data-link="#home">
-            <Circle />
+          <li
+            className={clicked.home ? "active" : ""}
+            onClick={() => onMenuHandler("home")}
+          >
+            {clicked.home && <Circle layoutId="circle" />}
             <span>Home</span>
           </li>
-          <li data-link="#about">
-            <Circle />
+          <li
+            className={clicked.about ? "active" : ""}
+            onClick={() => onMenuHandler("about")}
+          >
+            {clicked.about && <Circle layoutId="circle" />}
             <span>About</span>
           </li>
-          <li data-link="#work">
-            <Circle />
+          <li
+            className={clicked.work ? "active" : ""}
+            onClick={() => onMenuHandler("work")}
+          >
+            {clicked.work && <Circle layoutId="circle" />}
             <span>My work</span>
           </li>
-          <li data-link="#contact">
-            <Circle />
+          <li
+            className={clicked.contact ? "active" : ""}
+            onClick={() => onMenuHandler("contact")}
+          >
+            {clicked.contact && <Circle layoutId="circle" />}
             <span>Contact</span>
           </li>
         </Menu>
@@ -136,6 +268,7 @@ function Header() {
         <h1>Portfolio</h1>
         <Line />
         <h2>웹 퍼블리셔 김해린</h2>
+        <Up>up</Up>
       </Content>
     </Wrapper>
   );

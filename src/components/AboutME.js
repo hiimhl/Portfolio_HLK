@@ -9,8 +9,9 @@ import {
 } from "../style";
 
 const Wrapper = styled.section`
-  width: 100%;
+  width: 80%;
   height: 100vh;
+  margin: 0 10%;
   padding: ${spaceMargin.large};
 `;
 
@@ -19,7 +20,7 @@ const Stroke = styled.div`
   height: 100%;
   display: flex;
   gap: ${spaceMargin.large};
-  border: 3px solid ${colorPalette.white};
+  /* border: 3px solid ${colorPalette.white}; */
 `;
 
 const ImgBox = styled.article`
@@ -91,7 +92,7 @@ const Details = styled.li`
   gap: ${spaceMargin.small};
 
   h3 {
-    font-size: ${fontSize.regular};
+    font-size: 22px;
     color: ${colorPalette.navy};
     font-weight: ${fontWeight.bold};
   }
@@ -101,7 +102,7 @@ const List = styled.ul`
   padding-left: ${spaceMargin.small};
 
   li {
-    margin-bottom: ${spaceMargin.small};
+    margin-bottom: ${spaceMargin.regular};
   }
 `;
 

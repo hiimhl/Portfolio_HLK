@@ -2,9 +2,10 @@ import styled from "styled-components";
 import { fontSize, fontWeight, spaceMargin } from "../style";
 
 const Wrapper = styled.footer`
-  background-image: url("Assets/footer_bg.svg");
-  background-position: top;
-  background-size: cover;
+  /* background-image: url("Assets/footer_bg.svg"); */
+  /* background-position: top;
+  background-size: cover; */
+  background-image: linear-gradient(#fff6ff, #d0bddb);
 
   width: 100%;
   height: 35vh;
