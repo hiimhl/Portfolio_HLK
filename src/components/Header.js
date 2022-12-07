@@ -124,9 +124,26 @@ const Line = styled.div`
 `;
 
 const Up = styled.button`
+  cursor: pointer;
   position: fixed;
   right: 50px;
   bottom: 50px;
+  background-color: ${colorPalette.main};
+  border: none;
+  border-radius: ${borderRadius.circle};
+  padding: ${spaceMargin.micro} ${spaceMargin.small};
+
+  -webkit-box-shadow: 1px 5px 15px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 5px 15px -1px rgba(0, 0, 0, 0.1);
+
+  &.hidden {
+    display: none;
+  }
+  svg {
+    width: 20px;
+    filter: invert(27%) sepia(85%) saturate(610%) hue-rotate(193deg)
+      brightness(96%) contrast(91%);
+  }
 `;
 // Variants
 
@@ -140,7 +157,7 @@ function Header() {
   const [path, setPath] = useState({
     home: 0,
     about: 1200, //scrollY 값
-    work: 2200,
+    work: 2100,
     contact: 2574,
   });
 
@@ -160,22 +177,27 @@ function Header() {
     ["rgba(208, 189, 219, 0)", "rgba(208, 189, 219, 1)"]
   );
 
-  // const onScrollEvent=() =>{
-  // if(scrollY.current === 1200){
-  //   console.log('1200');
-  // }
-  // }
-  useEffect(() => {
-    scrollY.onChange(() => {
-      const scrollValue = scrollY.get();
-    });
-    // console.log(scrollY);
-    // if (scrollY.current === 1200) {
-    //   console.log("1200");
-    // }
-  }, [scrollY]);
+  // Menu circle motion
+  function onCircleHandler() {
+    if (scrollY.current >= 2500) {
+      onMenuHandler("contact", false);
+    } else if (scrollY.current > path.work) {
+      onMenuHandler("work", false);
+    } else if (scrollY.current > path.about) {
+      onMenuHandler("about", false);
+    } else if (scrollY.current < 1000) {
+      onMenuHandler("home", false);
+    }
+  }
 
-  const onMenuHandler = (params) => {
+  useEffect(() => {
+    window.addEventListener("scroll", onCircleHandler); // 스크롤 이벤트 등록
+    return () => {
+      window.removeEventListener("scroll", onCircleHandler); // 스크롤 이벤트 제거
+    };
+  }, [onCircleHandler]);
+
+  const onMenuHandler = (params, scroll) => {
     // active menu button & Scroll Event
     switch (params) {
       case "home":
@@ -186,9 +208,10 @@ function Header() {
           home: true,
         });
         //Scroll Event , left - X, top - Y / behavior: CSS
-        window.scrollTo({ left: 0, top: path.home, behavior: "smooth" });
+        scroll &&
+          window.scrollTo({ left: 0, top: path.home, behavior: "smooth" });
         break;
-
+      //
       case "about":
         setClicked({
           home: false,
@@ -196,8 +219,10 @@ function Header() {
           contact: false,
           about: true,
         });
-        window.scrollTo({ left: 0, top: path.about, behavior: "smooth" });
+        scroll &&
+          window.scrollTo({ left: 0, top: path.about, behavior: "smooth" });
         break;
+      //
       case "work":
         setClicked({
           home: false,
@@ -205,8 +230,10 @@ function Header() {
           contact: false,
           work: true,
         });
-        window.scrollTo({ left: 0, top: path.work, behavior: "smooth" });
+        scroll &&
+          window.scrollTo({ left: 0, top: path.work, behavior: "smooth" });
         break;
+      //
       case "contact":
         setClicked({
           home: false,
@@ -214,7 +241,8 @@ function Header() {
           work: false,
           contact: true,
         });
-        window.scrollTo({ left: 0, top: path.contact, behavior: "smooth" });
+        scroll &&
+          window.scrollTo({ left: 0, top: path.contact, behavior: "smooth" });
         break;
       default:
         return;
@@ -224,6 +252,11 @@ function Header() {
     //   ...prev
     //   [params]: !prev[params],
     // }));
+  };
+
+  //to Home
+  const onUpHandler = () => {
+    onMenuHandler("home", true);
   };
 
   return (
@@ -236,28 +269,28 @@ function Header() {
         <Menu>
           <li
             className={clicked.home ? "active" : ""}
-            onClick={() => onMenuHandler("home")}
+            onClick={() => onMenuHandler("home", true)}
           >
             {clicked.home && <Circle layoutId="circle" />}
             <span>Home</span>
           </li>
           <li
             className={clicked.about ? "active" : ""}
-            onClick={() => onMenuHandler("about")}
+            onClick={() => onMenuHandler("about", true)}
           >
             {clicked.about && <Circle layoutId="circle" />}
             <span>About</span>
           </li>
           <li
             className={clicked.work ? "active" : ""}
-            onClick={() => onMenuHandler("work")}
+            onClick={() => onMenuHandler("work", true)}
           >
             {clicked.work && <Circle layoutId="circle" />}
             <span>My work</span>
           </li>
           <li
             className={clicked.contact ? "active" : ""}
-            onClick={() => onMenuHandler("contact")}
+            onClick={() => onMenuHandler("contact", true)}
           >
             {clicked.contact && <Circle layoutId="circle" />}
             <span>Contact</span>
@@ -268,7 +301,11 @@ function Header() {
         <h1>Portfolio</h1>
         <Line />
         <h2>웹 퍼블리셔 김해린</h2>
-        <Up>up</Up>
+        <Up onClick={onUpHandler} className={clicked.home ? "hidden" : ""}>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+            <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" />
+          </svg>
+        </Up>
       </Content>
     </Wrapper>
   );

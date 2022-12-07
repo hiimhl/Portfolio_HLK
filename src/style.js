@@ -8,6 +8,7 @@ export const colorPalette = {
   orange: "#FFAC8C",
   pink: "#f8e5f8",
   background: "#FFF6FF",
+  main: "#D0BDDB",
 };
 
 // Margin, Padding
